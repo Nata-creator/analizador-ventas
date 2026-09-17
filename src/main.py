@@ -1,5 +1,12 @@
 import pandas as pd
-from analisis import (calcular_ventas_totales, cantidad_total_productos, producto_mas_vendido, ventas_por_categoria)
+from analisis import (
+    calcular_ventas_totales, 
+    cantidad_total_productos, 
+    producto_mas_vendido, 
+    ventas_por_categoria
+    )
+
+from graficos import generar_grafico_categorias
 
 def main():
 
@@ -20,6 +27,8 @@ def main():
     print()
     print("Ventas por categoría:")
     print(categorias)
+
+    generar_grafico_categorias(ventas)
 
 
 
