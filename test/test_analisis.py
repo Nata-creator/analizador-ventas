@@ -4,7 +4,8 @@ from src.analisis import (
     calcular_ventas_totales,
     producto_mas_vendido,
     cantidad_total_productos,
-    validar_datos
+    validar_datos,
+    ventas_por_categoria
 )
 
 
@@ -59,3 +60,18 @@ def test_validar_datos_rechaza_cantidad_negativa():
         assert True
     else:
         assert False
+
+def test_ventas_por_categoria():
+    ventas = crear_datos_prueba()
+
+    calcular_ventas_totales(ventas)
+
+    categorias = ventas_por_categoria(ventas)
+
+    total_categoria = categorias['Electronica']
+    # print(total_categoria)
+
+    # for categoria, valor in categorias.items():
+    #     if categoria.lower() == "electronica":
+    #         total = total + valor
+    assert total_categoria == 3500

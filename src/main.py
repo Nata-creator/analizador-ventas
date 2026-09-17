@@ -9,6 +9,8 @@ from analisis import (
 
 from graficos import generar_grafico_categorias, generar_grafico_productos_mas_vendidos
 
+from reporte import generar_reporte
+
 def main():
 
     ventas = pd.read_csv("data/ventas.csv")
@@ -32,6 +34,8 @@ def main():
 
     generar_grafico_categorias(ventas)
     generar_grafico_productos_mas_vendidos(ventas=ventas)
+
+    generar_reporte(ventas)
 
 
 
