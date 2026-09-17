@@ -6,7 +6,7 @@ from analisis import (
     ventas_por_categoria
     )
 
-from graficos import generar_grafico_categorias, generar_grafico_productos_mas_vendidor
+from graficos import generar_grafico_categorias, generar_grafico_productos_mas_vendidos
 
 def main():
 
@@ -29,7 +29,7 @@ def main():
     print(categorias)
 
     generar_grafico_categorias(ventas)
-    generar_grafico_productos_mas_vendidor(ventas=ventas)
+    generar_grafico_productos_mas_vendidos(ventas=ventas)
 
 
 

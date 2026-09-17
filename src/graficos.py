@@ -22,7 +22,7 @@ def generar_grafico_categorias(ventas: pd.DataFrame) -> None:
     plt.savefig(REPORTS_DIR / "ventas_por_categoria.png")
     plt.close()
 
-def generar_grafico_productos_mas_vendidor(ventas: pd.DataFrame) -> None:
+def generar_grafico_productos_mas_vendidos(ventas: pd.DataFrame) -> None:
     datos = ventas.groupby("producto")["cantidad"].sum()
 
     datos.plot(kind="bar")
