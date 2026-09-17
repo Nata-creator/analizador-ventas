@@ -1,9 +1,0 @@
-================================
-       REPORTE DE VENTAS       
-================================
-Ventas totales: $15,865,000
-Producto más vendido: Mouse
-Cantidad total de productos: 36
-Ventas por categoría:
-Electronica: $13,735,000
-Oficina: $2,130,000
