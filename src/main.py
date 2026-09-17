@@ -3,7 +3,8 @@ from analisis import (
     calcular_ventas_totales, 
     cantidad_total_productos, 
     producto_mas_vendido, 
-    ventas_por_categoria
+    ventas_por_categoria,
+    validar_datos
     )
 
 from graficos import generar_grafico_categorias, generar_grafico_productos_mas_vendidos
@@ -11,6 +12,7 @@ from graficos import generar_grafico_categorias, generar_grafico_productos_mas_v
 def main():
 
     ventas = pd.read_csv("data/ventas.csv")
+    validar_datos(ventas=ventas)
 
     calcular_ventas_totales(ventas)
 
