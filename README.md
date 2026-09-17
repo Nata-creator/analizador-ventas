@@ -127,3 +127,11 @@ Este proyecto forma parte de mi portafolio de desarrollo en Python y tiene como 
 **Natalia**
 
 Proyecto desarrollado como parte de mi portafolio de Python.
+
+### Ventas por categoría
+
+![Ventas por categoría](docs/ventas_por_categoria.png)
+
+### Productos más vendidos
+
+![Productos más vendidos](docs/productos_mas_vendidos.png)
