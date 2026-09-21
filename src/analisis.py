@@ -1,9 +1,15 @@
 import pandas as pd
 
+def calcular_totales_por_venta(ventas: pd.DataFrame) -> pd.Series:
+    return ventas["cantidad"] * ventas["precio_unitario"]
 
 def calcular_ventas_totales(ventas: pd.DataFrame) -> float:
-    ventas["total"] = ventas["cantidad"] * ventas["precio_unitario"]
-    return ventas["total"].sum()
+    total = calcular_totales_por_venta(ventas)
+    return total.sum()
+    # return ventas["total"].sum()
+
+    # ventas["total"] = ventas["cantidad"] * ventas["precio_unitario"]
+    # return ventas["total"].sum()
 
 
 def producto_mas_vendido(ventas: pd.DataFrame) -> str:
@@ -16,7 +22,9 @@ def cantidad_total_productos(ventas: pd.DataFrame) -> int:
 
 
 def ventas_por_categoria(ventas: pd.DataFrame) -> pd.Series:
-    return ventas.groupby("categoria")["total"].sum()
+    total = calcular_totales_por_venta(ventas)
+    #Aqui fue complejo de enteder, debe pasarle un Series y la seria es venta['categoria']
+    return total.groupby(ventas["categoria"]).sum()
 
 def validar_datos(ventas: pd.DataFrame) -> None:
     columnas_requeridas = {

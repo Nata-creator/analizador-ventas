@@ -16,9 +16,8 @@ def main():
     ventas = pd.read_csv("data/ventas.csv")
     validar_datos(ventas=ventas)
 
-    calcular_ventas_totales(ventas)
+    total_ventas = calcular_ventas_totales(ventas)
 
-    total_ventas = ventas["total"].sum()
     producto = producto_mas_vendido(ventas)
     cantidad = cantidad_total_productos(ventas)
     categorias = ventas_por_categoria(ventas)
@@ -36,8 +35,6 @@ def main():
     generar_grafico_productos_mas_vendidos(ventas=ventas)
 
     generar_reporte(ventas)
-
-
 
 if __name__ == "__main__":
     main()

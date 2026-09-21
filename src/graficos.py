@@ -2,6 +2,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from analisis import ventas_por_categoria
+
 REPORTS_DIR = Path("reports")
 
 def __ini__():
@@ -9,7 +11,8 @@ def __ini__():
 
 def generar_grafico_categorias(ventas: pd.DataFrame) -> None:
     #REPORTS_DIR.mkdir(exist_ok=True)
-    datos = ventas.groupby("categoria")["total"].sum()
+    #datos = ventas.groupby("categoria")["total"].sum()
+    datos = ventas_por_categoria(ventas)
 
     datos.plot(kind="bar")
 
@@ -24,6 +27,8 @@ def generar_grafico_categorias(ventas: pd.DataFrame) -> None:
 
 def generar_grafico_productos_mas_vendidos(ventas: pd.DataFrame) -> None:
     datos = ventas.groupby("producto")["cantidad"].sum()
+    #datos = datos.sort_values(ascending=False)  # mayor -> menor
+    datos = datos.sort_values(ascending=True)  # menor -> mayor
 
     datos.plot(kind="bar")
 

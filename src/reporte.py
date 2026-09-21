@@ -1,10 +1,10 @@
 import pandas as pd
 from pathlib import Path
-from analisis import (
-    calcular_ventas_totales, 
+from analisis import ( 
     cantidad_total_productos, 
     producto_mas_vendido, 
     ventas_por_categoria,
+    calcular_ventas_totales
     )
 
 REPORTS_DIR = Path("reports")
@@ -12,9 +12,7 @@ FILE = 'resumen.txt'
 REPORTS_DIR.mkdir(exist_ok=True)
 
 def generar_reporte(ventas: pd.DataFrame) -> None:
-    calcular_ventas_totales(ventas)
-    
-    total_ventas = ventas["total"].sum()
+    total_ventas = calcular_ventas_totales(ventas)
     producto = producto_mas_vendido(ventas)
     cantidad = cantidad_total_productos(ventas)
     categorias = ventas_por_categoria(ventas)

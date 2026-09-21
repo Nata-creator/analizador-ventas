@@ -1,4 +1,5 @@
 import pandas as pd
+import pytest
 
 from src.analisis import (
     calcular_ventas_totales,
@@ -54,12 +55,9 @@ def test_validar_datos_rechaza_cantidad_negativa():
     ventas = crear_datos_prueba()
     ventas.loc[0, "cantidad"] = -1
 
-    try:
+    with pytest.raises(ValueError):
         validar_datos(ventas)
-    except ValueError:
-        assert True
-    else:
-        assert False
+    
 
 def test_ventas_por_categoria():
     ventas = crear_datos_prueba()
@@ -75,3 +73,36 @@ def test_ventas_por_categoria():
     #     if categoria.lower() == "electronica":
     #         total = total + valor
     assert total_categoria == 3500
+
+
+def test_validar_datos_rechaza_precio_negativo():
+    ventas = crear_datos_prueba()
+    ventas.loc[0, "precio_unitario"] = -1000
+
+    with pytest.raises(ValueError):
+        validar_datos(ventas)
+    #Es un poco mas extenso la forma de abajo, pero funciona,
+    #El pyteste nos da una funciona mas simple, arriba
+    # try:
+    #     validar_datos(ventas)
+    # except ValueError:
+    #     assert True
+    # else:
+    #     assert False
+
+
+def test_validar_datos_rechaza_cantidad_vacia():
+    ventas = crear_datos_prueba()
+    ventas.loc[0, "cantidad"] = None
+
+    with pytest.raises(ValueError):
+            validar_datos(ventas)
+
+def test_prueba():
+    ventas = crear_datos_prueba()
+
+    print(ventas.columns)
+
+    calcular_ventas_totales(ventas)
+
+    print(ventas.columns)
